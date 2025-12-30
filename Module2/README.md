@@ -42,7 +42,7 @@ This repository contains the **Module 2 assignment** focused on the **characteri
 * Shows the relationship between **input voltage (Vin)** and **output voltage (Vout)**
 * **Switching Threshold (Vth):**
   [
-  V_{th} = 0.543{V}
+  V_{th} = 0.543V
   ]
 
 ---
@@ -51,7 +51,7 @@ This repository contains the **Module 2 assignment** focused on the **characteri
 
 * **Maximum Drain Current (Id):**
   [
-  Id = 564u A
+  Id = 564 uA
   ]
 
 ---
