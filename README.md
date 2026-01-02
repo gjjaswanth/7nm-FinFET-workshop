@@ -81,9 +81,9 @@ The NMOS FinFET device is characterized using DC sweep simulations to understand
 The transfer characteristic shows how the drain current varies with gate voltage. This plot is used to extract the **threshold voltage** and study subthreshold behavior.
 
 <p align="center">
-  <img src="(https://github.com/user-attachments/assets/cec0dfd5-d2f5-40d2-ae6c-1e6272842b64)
-" width="650">
+  <img src="https://github.com/user-attachments/assets/69487d4f-5f95-49c2-9138-e7174db296cb" width="450">
 </p>
+<p align="center"><b>Drain Current (Id) Characteristics</b></p>
 
 ---
 
@@ -91,7 +91,7 @@ The transfer characteristic shows how the drain current varies with gate voltage
 Transconductance represents the sensitivity of drain current to changes in gate voltage. A higher gm indicates stronger gate control and faster switching capability.
 
 <p align="center">
-  <img src="images/gm.jpg" width="650">
+  <img src="https://github.com/user-attachments/assets/2800dac1-935a-4590-958c-90e79640d7da" width="450">
 </p>
 
 ---
@@ -100,7 +100,7 @@ Transconductance represents the sensitivity of drain current to changes in gate 
 Output resistance reflects the effect of channel-length modulation and impacts voltage gain and output stability.
 
 <p align="center">
-  <img src="images/r_out.jpg" width="650">
+  <img src="https://github.com/user-attachments/assets/41f55a2d-5baf-4b38-a966-bbf7562800e5" width="450">
 </p>
 
 ---
@@ -113,7 +113,7 @@ A CMOS inverter is implemented using ASAP7 NMOS and PMOS FinFET devices and anal
 The schematic below shows the FinFET-based CMOS inverter with PMOS as the pull-up network and NMOS as the pull-down network.
 
 <p align="center">
-  <img src="images/inverter_sch.jpg" width="650">
+  <img src="https://github.com/user-attachments/assets/0dbfde7e-5850-45eb-91e8-91d00d6a6321" width="500">
 </p>
 
 ---
@@ -123,21 +123,13 @@ The VTC curve represents the relationship between input voltage and output volta
 The point where **Vin = Vout** corresponds to the **switching threshold (Vth)** of the inverter.
 
 <p align="center">
-  <img src="images/vtc_curve.jpg" width="650">
+  <img src="https://github.com/user-attachments/assets/d6cb36dc-24e2-4493-8ad4-de03088a5315" width="500">
 </p>
 
 ---
 
-#### Gain and Switching Threshold
+#### Gain, Noise Margin Analysis and Switching Threshold
 The maximum voltage gain occurs near the switching region, indicating sharp transition behavior and good noise immunity.
-
-<p align="center">
-  <img src="images/gain.jpg" width="650">
-</p>
-
----
-
-### Noise Margin Analysis
 
 Noise margins determine the robustness of the inverter against noise at logic levels.
 
@@ -147,10 +139,11 @@ Noise margins determine the robustness of the inverter against noise at logic le
 This confirms reliable digital operation.
 
 <p align="center">
-  <img src="images/noise.jpg" width="650">
+  <img src="https://github.com/user-attachments/assets/dd486020-0c77-470f-93f0-8845591359d7" width="550">
 </p>
 
 ---
+
 
 ### Transient Analysis: Delay, Frequency, and Power
 
@@ -160,9 +153,8 @@ Transient simulations are used to extract propagation delay, operating frequency
 - Operating frequency is derived from total delay
 - Power is calculated from transient current and supply voltage
 
-<p align="center">
-  <img src="images/pwr,freq.jpg" width="650">
-</p>
+![pwr,freq](https://github.com/user-attachments/assets/a2185d31-b409-4af6-a00d-73de01f83f7e)
+
 
 ---
 
