@@ -192,46 +192,131 @@ Transient simulations are used to extract propagation delay, operating frequency
 **Conclusion:**  
 Transistor sizing directly impacts inverter speed, power consumption, and noise robustness in advanced FinFET technologies.
 
-## Module 3: Bandgap Reference Circuit Design (7nm)
+## 📘 Module 3: Bandgap Reference Circuit Design (7nm)
 
-A **Bandgap Reference Circuit (BGR)** is used to generate a **stable DC reference voltage** that is largely independent of **temperature**, **supply voltage**, and **process variations**.
-
-### Operating Principle
-- **CTAT Component:** Base–emitter voltage (Vbe), decreases with temperature
-- **PTAT Component:** ΔVbe across mismatched devices, increases with temperature
-- Proper weighting of PTAT and CTAT terms produces a **temperature-stable Vref**
+A **Bandgap Reference Circuit (BGR)** is a fundamental **analog building block** used to generate a **stable DC reference voltage (Vref)** that is largely independent of **temperature**, **supply voltage**, and **process variations**.  
+This design is implemented and characterized using the **ASAP7 7nm FinFET PDK**.
 
 ---
 
-### Bandgap Characterization Results
+## 🔧 Bandgap Reference Circuit Schematic
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5e8f0003-f5ca-4627-a3fa-e2a9f217ea6e" width="650">
+</p>
+
+The circuit consists of:
+- **CTAT generator** producing a voltage proportional to base-emitter voltage behavior (VCTAT)
+- **PTAT generator** producing a voltage proportional to absolute temperature (ΔV)
+- **Resistive weighting network** to combine PTAT and CTAT components
+- **Current mirrors** implemented using 7nm FinFET devices for biasing and matching
+
+---
+
+## ⚙️ Operating Principle
+
+- **CTAT Component:**  
+  VCTAT decreases with increase in temperature.
+
+- **PTAT Component:**  
+  ΔV (PTAT voltage) increases linearly with temperature.
+
+- **Bandgap Action:**  
+  Proper scaling of PTAT and CTAT components results in a **near temperature-independent Vref**.
+
+---
+
+## 📈 Temperature Sweep Analysis
+
+### 🔹 Temperature Coefficient vs Temperature
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4db75be0-1538-4b9d-b0d4-0ead609de3ab" width="500">
+</p>
+
+- Temperature coefficient moves closer to zero with increasing temperature
+- Non-linearity at temperature extremes is due to device-level effects in 7nm FinFETs
+
+---
+
+### 🔹 Reference Voltage (Vref) vs Temperature
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/376bb156-fcf8-421e-a11e-841047747b97" width="500">
+</p>
+
+- Vref decreases gradually with temperature
+- Demonstrates reasonable stability across **−40°C to 125°C**
+
+---
+
+### 🔹 PTAT Component (Vref − VCTAT)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/edf53af8-9ab2-43b8-9a82-27bc38f1bd45" width="500">
+</p>
+
+- PTAT voltage increases monotonically with temperature
+- Confirms correct PTAT voltage generation
+
+---
+
+### 🔹 Vref and VCTAT Comparison
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b69f9c62-d1e4-4db1-bcf1-7574425e728d" width="500">
+</p>
+
+- VCTAT exhibits a strong negative temperature coefficient
+- Vref slope is significantly reduced due to PTAT compensation
+
+---
+
+
+## 📊 Bandgap Characterization Results
 
 | VDD (V) | Temp (°C) | Vref (mV) | Line Regulation (mV/V) | Startup Time (ns) |
-|------|------|---------|------------------|----------------|
-| 0.8  | 27   | 230 | 287.5 | 6.09 |
-| 0.9  | 27   | 256 | 284.4 | 5.09 |
-| 1.0  | 27   | 285 | 285.0 | 4.00 |
-| 1.0  | -40  | 299 | 299.0 | 72.0 |
-| 1.0  | 125  | 268 | 268.0 | 2.04 |
+|--------|-----------|-----------|------------------------|------------------|
+| 0.8    | 27        | 230       | 287.5                  | 6.09             |
+| 0.9    | 27        | 256       | 284.4                  | 5.09             |
+| 1.0    | 27        | 285       | 285.0                  | 4.00             |
+| 1.0    | -40       | 299       | 299.0                  | 72.0             |
+| 1.0    | 125       | 268       | 268.0                  | 2.04             |
 
 ---
 
-### Analyses Performed
-- DC operating point analysis
-- Temperature sweep from **-40°C to 125°C**
-- Supply voltage sweep
-- Transient startup analysis
-- Measurement of:
-  - Vref
-  - Vptat
-  - Vctat
-  - Temperature coefficient
+## 🧪 Analyses Performed
+
+- DC operating point analysis  
+- Temperature sweep from **-40°C to 125°C**  
+- Supply voltage sweep  
+- Transient startup analysis  
+
+Measured parameters:
+- Vref  
+- VPTAT  
+- VCTAT  
+- Temperature coefficient  
+- Line regulation  
 
 ---
 
-### Startup Time
-Startup time is measured using **transient analysis**, observing the time taken for **Vref** to reach and settle at its steady-state value after power-up.
+## ⏱️ Startup Time Analysis
+
+Startup time is measured using **transient simulation**, defined as the time taken for **Vref** to reach and settle within its steady-state value after power-up.
+
+- Faster startup observed at higher temperatures
+- Slower startup at low temperatures due to reduced device mobility
 
 ---
+
+## ✅ Key Observations
+
+- PTAT and CTAT components are correctly generated
+- Partial temperature compensation achieved in 7nm FinFET technology
+- Residual temperature slope indicates scope for resistor and sizing optimization
+- Design demonstrates feasibility of bandgap references at advanced nodes
+
 
 ## References
 - Bandgap Reference Circuit (ASAP7)  
