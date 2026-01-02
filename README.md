@@ -152,6 +152,17 @@ A **Bandgap Reference Circuit (BGR)** generates a **temperature- and supply-inde
 
 ### Startup Time
 Startup time is measured using **transient analysis**, observing how quickly **Vref settles to steady-state** after power-up.
+<details>
+<summary><b>Startup Time Analysis (Transient)</b></summary>
+
+The startup time is obtained from transient simulation by observing the time
+taken for **Vref** to reach steady state after power-up.
+
+<p align="center">
+  <img src="images/startup_time.png" alt="Bandgap Startup Time Waveform" width="650">
+</p>
+
+</details>
 
 ---
 
