@@ -69,123 +69,99 @@ These values are consistently used across inverter and bandgap simulations to en
 
 ## Module 2: 7nm FinFET Device & Inverter Characterization
 
-This module focuses on **device-level and circuit-level characterization** of a 7nm FinFET-based CMOS inverter using the ASAP7 PDK. DC and transient analyses are performed to extract key electrical parameters and evaluate inverter performance.
+This module focuses on **device-level and circuit-level characterization** of a 7nm FinFET-based CMOS inverter using the ASAP7 PDK. Both **DC and transient analyses** are performed to extract key electrical parameters and evaluate inverter performance.
 
 ---
 
 ### NFET Characterization
-The NMOS FinFET device is characterized using DC sweep simulations to understand its electrical behavior at the 7nm node.
 
-<details>
-<summary><b>Id vs Vgs (Transfer Characteristics)</b></summary>
+The NMOS FinFET device is characterized using DC sweep simulations to understand its electrical behavior at the 7nm technology node.
 
-This plot shows how the drain current varies with gate voltage, helping determine threshold voltage and subthreshold behavior.
+#### Id vs Vgs (Transfer Characteristics)
+The transfer characteristic shows how the drain current varies with gate voltage. This plot is used to extract the **threshold voltage** and study subthreshold behavior.
 
 <p align="center">
   <img src="images/I_d.jpg" width="650">
 </p>
 
-</details>
+---
 
-<details>
-<summary><b>Transconductance (gm)</b></summary>
-
-Transconductance represents the sensitivity of drain current to gate voltage. A higher gm indicates stronger gate control and faster switching.
+#### Transconductance (gm)
+Transconductance represents the sensitivity of drain current to changes in gate voltage. A higher gm indicates stronger gate control and faster switching capability.
 
 <p align="center">
   <img src="images/gm.jpg" width="650">
 </p>
 
-</details>
+---
 
-<details>
-<summary><b>Output Resistance (r<sub>out</sub>)</b></summary>
-
-Output resistance reflects channel-length modulation and affects gain and output stability.
+#### Output Resistance (r<sub>out</sub>)
+Output resistance reflects the effect of channel-length modulation and impacts voltage gain and output stability.
 
 <p align="center">
   <img src="images/r_out.jpg" width="650">
 </p>
 
-</details>
-
 ---
 
 ### CMOS Inverter Characterization
 
-The CMOS inverter is constructed using ASAP7 NMOS and PMOS FinFETs and analyzed under DC and transient conditions.
+A CMOS inverter is implemented using ASAP7 NMOS and PMOS FinFET devices and analyzed under DC and transient conditions.
 
-<details>
-<summary><b>Inverter Schematic</b></summary>
-
-The schematic shows the FinFET-based CMOS inverter with PMOS as the pull-up network and NMOS as the pull-down network.
+#### Inverter Schematic
+The schematic below shows the FinFET-based CMOS inverter with PMOS as the pull-up network and NMOS as the pull-down network.
 
 <p align="center">
   <img src="images/inverter_sch.jpg" width="650">
 </p>
 
-</details>
+---
 
-<details>
-<summary><b>Voltage Transfer Characteristics (VTC)</b></summary>
-
-The VTC curve shows the relationship between input and output voltage.  
-The point where `Vin = Vout` represents the switching threshold (Vth).
+#### Voltage Transfer Characteristics (VTC)
+The VTC curve represents the relationship between input voltage and output voltage.  
+The point where **Vin = Vout** corresponds to the **switching threshold (Vth)** of the inverter.
 
 <p align="center">
   <img src="images/vtc_curve.jpg" width="650">
 </p>
 
-</details>
+---
 
-<details>
-<summary><b>Gain and Switching Threshold Extraction</b></summary>
-
-Maximum gain occurs near the switching region and determines noise immunity and sharpness of transition.
+#### Gain and Switching Threshold
+The maximum voltage gain occurs near the switching region, indicating sharp transition behavior and good noise immunity.
 
 <p align="center">
   <img src="images/gain.jpg" width="650">
 </p>
 
-</details>
-
 ---
 
 ### Noise Margin Analysis
 
-Noise margins indicate the robustness of the inverter against noise.
+Noise margins determine the robustness of the inverter against noise at logic levels.
 
-<details>
-<summary><b>Noise Margin Extraction</b></summary>
+- **NMH (Noise Margin High):** Positive  
+- **NML (Noise Margin Low):** Positive  
 
-- **NMH:** Noise margin high  
-- **NML:** Noise margin low  
-
-Positive noise margins indicate reliable digital operation.
+This confirms reliable digital operation.
 
 <p align="center">
   <img src="images/noise.jpg" width="650">
 </p>
 
-</details>
-
 ---
 
-### Transient Analysis
+### Transient Analysis: Delay, Frequency, and Power
 
-Transient simulations are used to analyze delay, frequency, and power consumption.
+Transient simulations are used to extract propagation delay, operating frequency, and power consumption.
 
-<details>
-<summary><b>Propagation Delay & Operating Frequency</b></summary>
-
-Propagation delay is measured at 50% of VDD for both input and output waveforms.  
-Operating frequency is derived from total delay.
+- Propagation delay is measured at **50% of VDD**
+- Operating frequency is derived from total delay
+- Power is calculated from transient current and supply voltage
 
 <p align="center">
   <img src="images/pwr,freq.jpg" width="650">
 </p>
-
-</details>
 
 ---
 
@@ -204,24 +180,23 @@ Operating frequency is derived from total delay.
 
 - Increasing **NMOS width**:
   - Increases pull-down strength
-  - Shifts VTC left
+  - Shifts VTC to the left
   - Reduces fall delay
   - Increases gain
 
 - Increasing **PMOS width**:
   - Improves pull-up strength
-  - Shifts VTC right
+  - Shifts VTC to the right
   - Reduces rise delay
   - Increases power consumption
 
-- **Balanced sizing**:
-  - Switching point near `VDD/2`
-  - Symmetric rise/fall delays
-  - Optimal speed–power trade-off
+- **Balanced NMOS–PMOS sizing**:
+  - Switching threshold near `VDD/2`
+  - Nearly symmetric rise and fall delays
+  - Best trade-off between speed and power
 
 **Conclusion:**  
-Device sizing directly controls inverter speed, power, and noise robustness at advanced nodes.
-
+Transistor sizing directly impacts inverter speed, power consumption, and noise robustness in advanced FinFET technologies.
 
 ## Module 3: Bandgap Reference Circuit Design (7nm)
 
