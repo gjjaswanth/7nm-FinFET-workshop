@@ -112,9 +112,6 @@ The weighted sum of CTAT and PTAT produces a stable **Vref**.
 - Supply voltage sweep
 - Transient startup analysis
 
-### Example Result
-
----
 
 ## Startup Time
 Startup time is measured using transient analysis by observing the time taken for **Vref** to settle to steady state.
@@ -124,9 +121,6 @@ Startup time is measured using transient analysis by observing the time taken fo
 ## References
 - Bandgap Reference Circuit  
   https://github.com/RSMadhuri66/avsdbgr_7nm  
-
-- ASAP7 Xschem Reference  
-  https://github.com/AsahiroKenpachi/asap_7nm_Xschem  
 
 - Ngspice Documentation  
   https://ngspice.sourceforge.io/docs.html  
@@ -139,5 +133,5 @@ Startup time is measured using transient analysis by observing the time taken fo
 ## Acknowledgements
 - **VLSI System Design (VSD)**
 - Workshop mentors and contributors
-- Open-source ASAP7 PDK community
+
 
