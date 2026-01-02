@@ -153,8 +153,9 @@ Transient simulations are used to extract propagation delay, operating frequency
 - Operating frequency is derived from total delay
 - Power is calculated from transient current and supply voltage
 
-![pwr,freq](https://github.com/user-attachments/assets/a2185d31-b409-4af6-a00d-73de01f83f7e)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a2185d31-b409-4af6-a00d-73de01f83f7e" width="550">
+</p
 
 ---
 
