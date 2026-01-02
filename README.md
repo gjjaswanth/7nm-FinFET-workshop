@@ -1,47 +1,47 @@
 # VSD Workshop on 7nm FinFET Circuit Design & Characterization  
 **Author:** Jaswanth  
 
-This repository contains my work from the **VLSI System Design (VSD) 10-Day Workshop on “7nm FinFET Circuit Design and Characterization using ASAP7 PDK”**, conducted from **26th December to 4th January**.
+This repository contains my work from the **10-Day Workshop on “7nm FinFET Circuit Design and Characterization using ASAP7 PDK”**, conducted by **:contentReference[oaicite:0]{index=0}** from **26th December to 4th January**.
 
 The workshop focuses on **advanced FinFET device physics**, **technology scaling**, and **SPICE-based circuit characterization** using the **ASAP7 open-source 7nm PDK**, with simulations carried out using **Ngspice** and **Xschem**.
 
 ---
 
 ## 🚀 Objectives
-- Gain a deep understanding of **7nm FinFET device physics**
-- Study the **evolution of transistors** from planar CMOS to sub-nanometer nodes
+- Understand **7nm FinFET device physics**
+- Study **technology scaling limits** of planar CMOS
 - Perform **SPICE-based device and circuit simulations**
-- Characterize a **CMOS inverter**, including:
-  - Voltage Transfer Characteristics (VTC)
-  - Drain current, transconductance, and gain
-  - Noise margins
-  - Propagation delay and power consumption
+- Characterize **NFET devices and CMOS inverter**
+- Analyze **delay, power, gain, noise margins**
 - Design and simulate a **Bandgap Reference Circuit**
-  - Analyze temperature and supply voltage dependence
-  - Measure reference voltage stability and startup behavior
+- Study **temperature, supply variation, and startup behavior**
 
 ---
 
 ## Why FinFET?
-As CMOS technology scaled below **22nm**, planar MOSFETs faced severe **short-channel effects** such as Drain Induced Barrier Lowering (DIBL), threshold voltage roll-off, increased leakage current, and poor electrostatic gate control.
+As CMOS scaled below **22nm**, planar MOSFETs suffered from severe **short-channel effects** such as:
+- Drain Induced Barrier Lowering (DIBL)
+- Threshold voltage roll-off
+- High leakage current
+- Poor gate control  
 
-**FinFETs** overcome these limitations by introducing a **3D fin-shaped channel**, where the gate wraps around the channel on multiple sides. This results in stronger electrostatic control, reduced leakage, higher drive current, and improved switching speed.
+**FinFETs** use a **3D fin-shaped channel**, allowing the gate to control the channel from multiple sides, improving electrostatics and scalability.
 
 ### Key Advantages
-- Suppression of short-channel effects  
-- Lower static and dynamic power consumption  
-- Higher drive current per unit area  
-- Better scalability for advanced technology nodes  
+- Reduced short-channel effects  
+- Lower leakage power  
+- Higher drive current  
+- Better performance at low supply voltages  
 
 ---
 
 ## Technology Scaling Overview
-- **≤180nm:** Dennard voltage scaling
-- **45nm:** High-K Metal Gate (HKMG)
-- **22nm:** Introduction of FinFETs
-- **7nm:** EUV lithography and optimized FinFETs
-- **≤3nm:** Transition to GAA / nanosheet devices
-- **Sub-1nm:** Exploration of 2D materials and CFETs
+- **≤180nm:** Dennard scaling
+- **45nm:** High-K Metal Gate
+- **22nm:** FinFET introduction
+- **7nm:** EUV + optimized FinFETs
+- **≤3nm:** GAA / nanosheet devices
+- **Sub-1nm:** 2D materials & CFETs
 
 ---
 
@@ -49,77 +49,114 @@ As CMOS technology scaled below **22nm**, planar MOSFETs faced severe **short-ch
 - **Technology Node:** ASAP7 (7nm FinFET)
 - **Simulator:** Ngspice
 - **Schematic Editor:** Xschem
-- **Analysis:** DC and Transient simulations
+- **Analyses:** DC, AC, Transient, Temperature sweep
 
 ---
 
-## 1. NFET Characterization
+## Unique Voltage Assignment
+For the username **gjjaswanth**, the ASCII-based unique value is:
+
+- **Voltage:** `1.073 V`
+- **Resistance (Bandgap):** `1073 Ω`
+
+This value is consistently used across all simulations.
+
+---
+
+## Module 2: 7nm FinFET Device & Inverter Characterization
+
+### NFET Characterization
 - Id vs Vgs
 - Id vs Vds
 - Threshold voltage extraction
 - Transconductance (gm)
 - Output resistance (rout)
 
-These plots help analyze short-channel behavior and drive capability at 7nm.
+These plots help analyze **drive strength** and **short-channel behavior** at 7nm.
 
 ---
 
-## 2. CMOS Inverter Characterization
+### CMOS Inverter Characterization
+
+#### Key Results
+- **Vth (Switching Threshold):** `0.543 V`
+- **Drain Current (Id):** `564 µA`
+- **Maximum Gain:** `≈ 4.3`
+- **Propagation Delay (tpd):** `≈ 25 ps`
+- **Operating Frequency:** `≈ 22.6 GHz`
+
+#### Noise Margins
+- **NMH:** Positive and stable
+- **NML:** Positive and stable  
+Indicates **robust noise immunity**.
+
+---
+
+### Effect of Transistor Sizing
+
+#### Increasing NMOS Width
+- Higher pull-down strength
+- Increased drain current
+- Reduced fall delay
+- VTC shifts **left**
+- Lower switching threshold
+
+#### Increasing PMOS Width
+- Higher pull-up strength
+- Faster charging
+- Reduced rise delay
+- VTC shifts **right**
+- Increased power consumption
+
+#### Balanced PMOS & NMOS
+- Switching point near `VDD/2`
+- Nearly equal rise & fall delays
+- Best trade-off between speed and power
+
+**Key Takeaway:**  
+Increasing width improves speed but increases power. PMOS/NMOS ratio controls switching point and delay symmetry.
+
+---
+
+## Module 3: Bandgap Reference Circuit Design (7nm)
+
+A **Bandgap Reference Circuit (BGR)** generates a **temperature- and supply-independent reference voltage**.
+
+### Principle
+- **CTAT:** Vbe (decreases with temperature)
+- **PTAT:** ΔVbe (increases with temperature)
+- Weighted sum → **stable Vref**
+
+---
+
+### Bandgap Characterization Results
+
+| VDD (V) | Temp (°C) | Vref (mV) | Line Regulation (mV/V) | Startup Time (ns) |
+|------|------|---------|------------------|----------------|
+| 0.8  | 27   | 230 | 287.5 | 6.09 |
+| 0.9  | 27   | 256 | 284.4 | 5.09 |
+| 1.0  | 27   | 285 | 285.0 | 4.00 |
+| 1.0  | -40  | 299 | 299.0 | 72.0 |
+| 1.0  | 125  | 268 | 268.0 | 2.04 |
+
+---
+
 ### Analyses Performed
-- Voltage Transfer Characteristics (VTC)
-- Switching threshold (Vth)
-- Noise margins (NMH, NML)
-- Drain current and gain
-- Propagation delay
-- Transient power consumption
-
-### Observations
-- Increasing **PMOS fins** shifts VTC to the right
-- Increasing **NMOS fins** shifts VTC to the left
-- Increasing fins increases drain current
-- Gain increases with NMOS sizing
-- Power increases with both NMOS and PMOS sizing
-
----
-
-## Unique Voltage Assignment
-For the username **gjjaswanth**, the ASCII-based unique voltage is: 1073 mV
-
-This voltage is used for inverter characterization across different fin counts.
-
----
-
-## 3. Bandgap Reference Circuit
-A **Bandgap Reference Circuit (BGR)** generates a temperature- and supply-independent reference voltage.
-
-### Concepts
-- **CTAT (Complementary To Absolute Temperature)**
-  - Based on Vbe of diode-connected transistor
-  - Decreases with temperature
-
-- **PTAT (Proportional To Absolute Temperature)**
-  - Generated from ΔVbe across devices of different sizes
-  - Increases with temperature
-
-The weighted sum of CTAT and PTAT produces a stable **Vref**.
-
----
-
-## Bandgap Analysis
-### Simulations
-- DC analysis
-- Temperature sweep (-45°C to 125°C)
+- DC operating point
+- Temperature sweep: **-40°C to 125°C**
 - Supply voltage sweep
 - Transient startup analysis
+- Vref, Vptat, Vctat, temperature coefficient
 
+---
 
-## Startup Time
-Startup time is measured using transient analysis by observing the time taken for **Vref** to settle to steady state.
+### Startup Time
+Startup time is measured using **transient analysis**, observing how quickly **Vref settles to steady-state** after power-up.
 
 ---
 
 ## References
-- Bandgap Reference Circuit  
+- Bandgap Reference Circuit (ASAP7)  
   https://github.com/RSMadhuri66/avsdbgr_7nm  
 
 - Ngspice Documentation  
@@ -133,5 +170,3 @@ Startup time is measured using transient analysis by observing the time taken fo
 ## Acknowledgements
 - **VLSI System Design (VSD)**
 - Workshop mentors and contributors
-
-
