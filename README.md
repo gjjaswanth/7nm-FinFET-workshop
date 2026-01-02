@@ -73,6 +73,95 @@ This value is consistently used across all simulations.
 - Output resistance (rout)
 
 These plots help analyze **drive strength** and **short-channel behavior** at 7nm.
+## Module 2: 7nm FinFET Device & Inverter Characterization
+
+<details open>
+<summary><b>Inverter Schematic</b></summary>
+
+<p align="center">
+  <img src="<img width="1850" height="631" alt="inverter_sch" src="https://github.com/user-attachments/assets/e90ee57d-85db-4aee-a363-32f5789aba1f" />
+" width="700">
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>VTC Characteristics</b></summary>
+
+<p align="center">
+  <img src="<img width="605" height="506" alt="vtc_curve" src="https://github.com/user-attachments/assets/259f7846-2d72-464b-bd5a-e8ccbc4e35ce" />
+" width="650"><br>
+  <i>Voltage Transfer Characteristics (VTC) of CMOS Inverter</i>
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>Drain Current (Id)</b></summary>
+
+<p align="center">
+  <img src="<img width="602" height="510" alt="I_d" src="https://github.com/user-attachments/assets/32fdb82c-efdc-4092-b28b-d1e292a33afd" />
+" width="650"><br>
+  <i>Drain current variation with input voltage</i>
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>Transconductance (gm)</b></summary>
+
+<p align="center">
+  <img src="<img width="607" height="505" alt="gm" src="https://github.com/user-attachments/assets/1efcbdef-9554-4547-8f49-c0ba0670e440" />
+" width="650"><br>
+  <i>Transconductance (gm) vs input voltage</i>
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>Output Resistance (r<sub>out</sub>)</b></summary>
+
+<p align="center">
+  <img src="<img width="598" height="508" alt="r_out" src="https://github.com/user-attachments/assets/d72c3d11-6cea-419e-af13-69ae83d8e7e7" />
+" width="650"><br>
+  <i>Output resistance variation</i>
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>Gain, Noise Margin & Threshold Voltage</b></summary>
+
+<p align="center">
+  <img src="<img width="513" height="332" alt="gain,gm,noise,vth" src="https://github.com/user-attachments/assets/56a4d658-2bf1-4bc1-b6fb-f3742d9d702a" />
+" width="700"><br>
+  <i>Extracted V<sub>th</sub>, maximum gain, noise margins, and gm</i>
+</p>
+
+</details>
+
+---
+
+<details>
+<summary><b>Power Consumption & Frequency</b></summary>
+
+<p align="center">
+  <img src="<img width="660" height="830" alt="pwr,freq" src="https://github.com/user-attachments/assets/07490581-a96e-4cd8-873e-0467ada2c209" />
+" width="700"><br>
+  <i>Propagation delay, power consumption, and operating frequency</i>
+</p>
+
+</details>
 
 ---
 
