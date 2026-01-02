@@ -81,7 +81,8 @@ The NMOS FinFET device is characterized using DC sweep simulations to understand
 The transfer characteristic shows how the drain current varies with gate voltage. This plot is used to extract the **threshold voltage** and study subthreshold behavior.
 
 <p align="center">
-  <img src="images/I_d.jpg" width="650">
+  <img src="(https://github.com/user-attachments/assets/cec0dfd5-d2f5-40d2-ae6c-1e6272842b64)
+" width="650">
 </p>
 
 ---
